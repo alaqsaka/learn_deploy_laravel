@@ -24,7 +24,6 @@ class GuestController extends Controller
             'note' => $request->note
         ]);
 
-        // return redirect()->route('/')->with('success','Product created successfully.');
         return redirect('/')->with('success','Berhasil isi daftar tamu.');
     }
 }
