@@ -35,6 +35,8 @@
                 </h1>
 
                 <p class="text-medium text-white font-semibold"> - Aqsa</p>
+
+                <p class="text-lg text-white mt-10 font-bold">Guest Book</p>
             </div>
         </div>
     </body>
