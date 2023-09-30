@@ -31,8 +31,12 @@ Route::middleware('auth')->group(function () {
 Route::prefix('tenant')->group(function () {
     // Show create form
     Route::get('/create', [TenantController::class, 'create']);
+
     // Store tenant data
     Route::post('/', [TenantController::class, 'store']);
+
+    // Show detail page
+    Route::get('/{tenant_id}', [TenantController::class, 'showDashboard']);
 })->middleware(['auth', 'verified'])->name('tenant');
 
 require __DIR__.'/auth.php';

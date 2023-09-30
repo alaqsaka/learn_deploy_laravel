@@ -53,4 +53,12 @@ class TenantController extends Controller
             ], 404);
         }
     }
+
+    public function showDashboard($tenant_id) {
+
+        $tenant = Tenants::with('menus')->find($tenant_id);
+        return view('tenants.show', [
+            'tenant' => $tenant
+        ]);
+    }
 }
