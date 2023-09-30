@@ -13,17 +13,33 @@ class TenantController extends Controller
         return response()->json($tenants);
     }
 
+    public function indexDashboard()
+    {
+        return view('dashboard', [
+            'tenants' => Tenants::all()
+        ]);
+    }
+
+    public function create(){
+        return view('tenants.create');
+    }
+
     public function store(Request $request)
     {
-        $tenant = new Tenants;
-        $tenant->name = $request->name;
-        $tenant->owner = $request->owner;
-        $tenant->imageUrl = $request->imageUrl;
-        $tenant->save();
+        $formFields = $request->validate([
+            'name' => 'required',
+            'owner' => 'required',
+            'imageUrl' => 'required',
+            // 'description' => 'required'
+        ]);
 
-        return response()->json([
-            "message" => "Tenant Addded."
-        ], 201);
+        if ($request->hasFile('imageUrl')) {
+            $formFields['imageUrl'] = $request->file('imageUrl')->store('tenants', 'public');
+        }
+
+        Tenants::create($formFields);
+
+        return redirect('/dashboard')->with('message', 'Sukses tambah tenant');
     }
 
     public function show($id) {
