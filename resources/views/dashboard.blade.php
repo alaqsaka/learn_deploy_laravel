@@ -10,8 +10,6 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6">
                 <div class=" text-gray-900">
                     {{ __("Selamat Datang!") }}
-
-
                 </div>
 
 
@@ -37,7 +35,7 @@
                         <table class="w-full text-sm text-left text-gray-500">
                             <thead class="text-base text-gray-700 bg-gray-100 border border-black">
                                 <tr>
-                                    <th scope="col" class="px-6 py-3">
+                                    <th scope="col" class="px-6 py-3 text-sm">
                                         Id
                                     </th>
                                     <th scope="col" class="px-6 py-3">
@@ -58,23 +56,25 @@
                                 @unless (count($tenants) ==0)
                                     @foreach ($tenants as $tenant)
                                         <tr class="">
-                                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                                            <th scope="row" class="px-6 py-4 text-sm text-gray-900 whitespace-nowrap ">
                                                 {{ $tenant->id }}
                                             </th>
-                                            <td class="px-6 py-4 font-medium">
+                                            <td class="px-6 py-4 text-base">
                                                 {{ $tenant->name }}
                                             </td>
-                                            <td class="px-6 py-4 font-medium">
+                                            <td class="px-6 py-4 text-base">
                                                 {{ $tenant->owner }}
                                             </td>
-                                            <td class="px-6 py-4 font-medium">
+                                            <td class="px-6 py-4 text-base">
                                                 <img
                                                     class="hidden w-10 mr-6 md:block"
                                                     src="{{ asset('storage/'. $tenant->imageUrl) }}"
                                                 />
                                             </td>
-                                            <td class="px-6 py-4 font-medium">
-                                                Action Buttons here
+                                            <td class="px-6 py-4 text-base">
+                                                <a href={{ '/tenant/'.$tenant->id }} class="text-white bg-gray-950 border-0 py-2 px-8 focus:outline-none hover:bg-gray-900 rounded text-base">Detail</a>
+                                                <a href={{ '/tenant/edit/'.$tenant->id }} class="text-white bg-yellow-400 border-0 py-2 px-8 focus:outline-none hover:bg-yellow-500 rounded text-base">Edit</a>
+                                                <a href={{ '/tenant/delete/'.$tenant->id }} class="text-white bg-red-400 border-0 py-2 px-8 focus:outline-none hover:bg-red-500 rounded text-base">Hapus</a>
                                             </td>
                                         </tr>
                                     @endforeach
