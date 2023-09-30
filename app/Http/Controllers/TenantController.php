@@ -26,8 +26,6 @@ class TenantController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request);
-
         $formFields = $request->validate([
             'name' => 'required',
             'owner' => 'required',
@@ -44,8 +42,8 @@ class TenantController extends Controller
         return redirect('/dashboard')->with('message', 'Sukses tambah tenant');
     }
 
-    public function show($id) {
-        $tenant = Tenants::find($id);
+    public function show($tenant_id) {
+        $tenant = Tenants::with('menus')->find($tenant_id);
         if (!empty($tenant)) {
             return response()->json($tenant);
         } else

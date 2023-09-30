@@ -9,4 +9,8 @@ class Menu extends Model
 {
     use HasFactory;
     protected $fillable = ['name', 'imageUrl', 'desccription', 'price'];
+
+    public function tenant() {
+        return $this->belongsTo(Tenants::class);
+    }
 }

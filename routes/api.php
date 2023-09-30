@@ -21,4 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // Tenants
 Route::get('/tenants', [TenantController::class, 'index']);
-Route::get('/tenants/{id}', [TenantController::class, 'show']);
+Route::get('/tenants/{tenant_id}', [TenantController::class, 'show']);
