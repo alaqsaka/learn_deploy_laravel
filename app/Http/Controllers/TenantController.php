@@ -26,11 +26,13 @@ class TenantController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request);
+
         $formFields = $request->validate([
             'name' => 'required',
             'owner' => 'required',
             'imageUrl' => 'required',
-            // 'description' => 'required'
+            'description' => 'required'
         ]);
 
         if ($request->hasFile('imageUrl')) {
