@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TenantController;
 use Illuminate\Support\Facades\Route;
@@ -31,6 +32,9 @@ Route::middleware('auth')->group(function () {
 Route::prefix('tenant')->group(function () {
     // Show create form
     Route::get('/create', [TenantController::class, 'create']);
+
+    // Show create menu form
+    Route::get('/{tenant_id}/menu/create', [MenuController::class, 'create']);
 
     // Store tenant data
     Route::post('/', [TenantController::class, 'store']);

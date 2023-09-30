@@ -31,7 +31,7 @@
                 </div>
                 <div class="flex justify-between items-center mt-6">
                     <p class="text-2xl font-extrabold mb-3">Menu</p>
-                    <a href={{ '/menu/create'}} class="text-white bg-gray-950 border-0 py-2 px-8 focus:outline-none hover:bg-gray-900 rounded text-base">Tambah Menu</a>
+                    <a href={{ '/tenant/'.$tenant->id.'/menu/create' }} class="text-white bg-gray-950 border-0 py-2 px-8 focus:outline-none hover:bg-gray-900 rounded text-base">Tambah Menu</a>
                 </div>
                 {{-- Menu's card --}}
                 <div>
