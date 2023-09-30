@@ -12,7 +12,7 @@
                 <div class="grid grid-cols-3">
                     <div class="border border-black">
                         <img
-                            class="hidden mr-6 md:block"
+                            class="hidden mr-6 md:block h-w-96 w-96"
                             src="{{ asset('storage/'. $tenant->imageUrl) }}"
                         />
                     </div>
