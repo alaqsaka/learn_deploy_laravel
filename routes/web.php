@@ -3,6 +3,7 @@
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TenantController;
+use App\Models\Menu;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,6 +37,9 @@ Route::prefix('tenant')->group(function () {
     // Show create menu form
     Route::get('/{tenant_id}/menu/create', [MenuController::class, 'create']);
 
+    // Show update menu form
+    Route::get('/{tenant_id}/menu/{menu_id}/edit', [MenuController::class, 'edit']);
+
     // Store tenant data
     Route::post('/', [TenantController::class, 'store']);
 
@@ -46,6 +50,9 @@ Route::prefix('tenant')->group(function () {
 Route::prefix('menu')->group(function() {
     // Store menu data
     Route::post('/', [MenuController::class, 'store']);
+
+    // Update menu data
+    Route::put('/{menu_id}', [MenuController::class, 'update']);
 })->middleware(['auth', 'verified'])->name('menu');
 
 require __DIR__.'/auth.php';
