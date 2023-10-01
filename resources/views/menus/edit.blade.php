@@ -9,7 +9,6 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6">
                 <p class="text-lg font-bold mb-3">Edit menu untuk Tenant: {{ $tenant->name }} </p>
-                {{$menu->name}}
                <form method="POST" action="/menu/{{$menu->id}}" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')

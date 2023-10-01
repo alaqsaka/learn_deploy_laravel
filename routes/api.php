@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MenuController;
 use App\Http\Controllers\TenantController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -22,3 +23,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // Tenants
 Route::get('/tenants', [TenantController::class, 'index']);
 Route::get('/tenants/{tenant_id}', [TenantController::class, 'show']);
+Route::get('/menu/{menu_id}', [MenuController::class, 'show']);

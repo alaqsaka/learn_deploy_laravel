@@ -70,4 +70,18 @@ class MenuController extends Controller
 
         return redirect('/tenant/'.$menu->tenant_id)->with('message', 'Sukses memperbarui menu');
     }
+
+    // Show menu detail
+    public function show($menu_id) {
+        $menu = Menu::find($menu_id);
+
+        if (!empty($menu)) {
+            return response()->json($menu);
+        } else
+        {
+            return response()->json([
+                "message" => "Menu not found"
+            ], 404);
+        }
+    }
 }
