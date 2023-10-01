@@ -43,4 +43,9 @@ Route::prefix('tenant')->group(function () {
     Route::get('/{tenant_id}', [TenantController::class, 'showDashboard']);
 })->middleware(['auth', 'verified'])->name('tenant');
 
+Route::prefix('menu')->group(function() {
+    // Store menu data
+    Route::post('/', [MenuController::class, 'store']);
+})->middleware(['auth', 'verified'])->name('menu');
+
 require __DIR__.'/auth.php';

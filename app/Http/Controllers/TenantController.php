@@ -58,7 +58,8 @@ class TenantController extends Controller
 
         $tenant = Tenants::with('menus')->find($tenant_id);
         return view('tenants.show', [
-            'tenant' => $tenant
+            'tenant' => $tenant,
+            'menus' => $tenant->menus
         ]);
     }
 }
