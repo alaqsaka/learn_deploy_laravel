@@ -47,7 +47,10 @@
                                     <th scope="col" class="px-6 py-3">
                                         Deskripsi
                                     </th>
-                                    <th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Foto
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
                                         Aksi
                                     </th>
                                 </tr>
@@ -66,6 +69,9 @@
                                                 {{ $tenant->owner }}
                                             </td>
                                             <td class="px-6 py-4 text-base">
+                                                {{ $tenant->description}}
+                                            </td>
+                                            <td class="px-6 py-4 text-base">
                                                 <img
                                                     class="hidden w-10 mr-6 md:block"
                                                     src="{{ asset('storage/'. $tenant->imageUrl) }}"
@@ -73,8 +79,6 @@
                                             </td>
                                             <td class="px-6 py-4 text-base">
                                                 <a href={{ '/tenant/'.$tenant->id }} class="text-white bg-gray-950 border-0 py-2 px-8 focus:outline-none hover:bg-gray-900 rounded text-base">Detail</a>
-                                                <a href={{ '/tenant/edit/'.$tenant->id }} class="text-white bg-yellow-400 border-0 py-2 px-8 focus:outline-none hover:bg-yellow-500 rounded text-base">Edit</a>
-                                                <a href={{ '/tenant/delete/'.$tenant->id }} class="text-white bg-red-400 border-0 py-2 px-8 focus:outline-none hover:bg-red-500 rounded text-base">Hapus</a>
                                             </td>
                                         </tr>
                                     @endforeach
