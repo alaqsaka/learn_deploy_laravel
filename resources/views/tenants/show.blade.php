@@ -10,7 +10,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6">
                 <p class="text-2xl font-extrabold mb-3">Detail Tenant: ID {{ $tenant->id}}</p>
                 <div class="grid grid-cols-3">
-                    <div class="border border-black">
+                    <div class="">
                         <img
                             class="hidden mr-6 md:block h-w-96 w-96"
                             src="{{ asset('storage/'. $tenant->imageUrl) }}"
@@ -57,9 +57,10 @@
                                             <div class="p-6">
                                             {{-- <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORY</h2> --}}
                                             <h1 class="title-font text-lg font-medium text-gray-900 mb-3">{{ $menu->name }}</h1>
-                                            <p class="leading-relaxed mb-3">{{ $menu->description }}</p>
+                                            <p class="leading-relaxed mb-3">Deskripsi: <span class="font-semibold">{{ $menu->description }}</span></p>
+                                            <p class="leading-relaxed mb-3">Harga: Rp. <span class="font-semibold">{{ $menu->price }}</span></p>
                                             <div class="flex items-center flex-wrap ">
-                                                <a href="{{'/menu/'.$menu->id}}" class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Detail
+                                                <a href="{{'/menu/'.$menu->id . '/edit'}}" class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Edit
                                                 <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                     <path d="M5 12h14"></path>
                                                     <path d="M12 5l7 7-7 7"></path>
